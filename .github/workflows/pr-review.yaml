@@ -1,6 +1,6 @@
 name: pr-review
 on:
-  pull-request:
+  pull_request:
     types: [opened, synchronize]
 
 
