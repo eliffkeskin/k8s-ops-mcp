@@ -1,0 +1,26 @@
+name: pr-review
+on:
+  pull-request:
+    types: [opened, synchronize]
+
+
+permissions:
+  pull-requests: write
+  issues: write
+  contents: read
+
+jobs:
+  review-pr:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: pip install -r tools/pr_review/requirements.txt
+
+      - run: python3 tools/pr_review/review.py ${{ github.event.pull_request.number }}
+      
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            OLLAMA_BASE_URL: http://localhost:11434/v1
+            REVIEW_MODEL: qwen2.5-coder:7b
+
