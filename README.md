@@ -58,6 +58,12 @@ host.py      # minimal MCP host: Ollama ↔ MCP client loop
 ## Output
 ![Output](docs/terminal-output.png)
 
+
+## PR Review Agent
+
+LLM-based review on every pull request, running on a local model and a
+self-hosted runner. See [tools/pr_review](tools/pr_review/README.md).
+
 ## Limitations & next steps
 
 Deliberate debts  tracked, not hidden:
