@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: pip install -r tools/pr_review/requirements.txt
+      - run: python3 -m pip install -r tools/pr_review/requirements.txt
 
       - run: python3 tools/pr_review/review.py ${{ github.event.pull_request.number }}
       
